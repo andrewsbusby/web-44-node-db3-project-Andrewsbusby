@@ -140,6 +140,9 @@ function findSteps(scheme_id) { // EXERCISE C
         }
       ]
   */
+ return db('schemes as sc')
+      .leftJoin('steps as st', 'sc.scheme_id', 'st.scheme_id')
+      .where('sc.scheme_id', scheme_id)
 }
 
 function add(scheme) { // EXERCISE D
