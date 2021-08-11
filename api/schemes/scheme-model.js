@@ -17,6 +17,11 @@ function find() { // EXERCISE A
     2A- When you have a grasp on the query go ahead and build it in Knex.
     Return from this function the resulting dataset.
   */
+ return db('schemes as sc').count('st.step_id as number_of_steps')
+    .leftJoin('steps as st', 'sc.scheme_id', 'st.scheme_id')
+    .group('sc.scheme_id')
+    .order('sc.scheme_id')
+    
 }
 
 function findById(scheme_id) { // EXERCISE B
